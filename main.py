@@ -195,32 +195,32 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
 
 if __name__ == '__main__':
-    all_population = my_AG(population_size=10,
-                           number_of_generations=10,
+    all_population = my_AG(population_size=100,
+                           number_of_generations=100,
                            crossover_param=75,
                            mutation_param=1,
                            considered=7)
 
-    x = []
-    y = []
-    z = []
-    c = []
-
-    for generation in all_population:
-        for croma in all_population[generation]:
-            c.append(generation)
-            x.append((int(croma["id"][0:22], 2) * (200 / (2 ** 22 - 1))) - 100)
-            y.append((int(croma["id"][22:44], 2) * (200 / (2 ** 22 - 1))) - 100)
-            z.append(croma["fitness"])
-
-    fig = plt.figure()
-    ax = fig.add_subplot(projection='3d')
-    ax.scatter(x, y, z, c=c, cmap=cm.coolwarm, marker='o')
-
-    plt.savefig("GA_F6.png")
-
-    # plt.colorbar(label="Generation", orientation="horizontal", c=c, cmap=cm.coolwarm)
-    plt.show()
+    # x = []
+    # y = []
+    # z = []
+    # c = []
+    #
+    # for generation in all_population:
+    #     for croma in all_population[generation]:
+    #         c.append(generation)
+    #         x.append((int(croma["id"][0:22], 2) * (200 / (2 ** 22 - 1))) - 100)
+    #         y.append((int(croma["id"][22:44], 2) * (200 / (2 ** 22 - 1))) - 100)
+    #         z.append(croma["fitness"])
+    #
+    # fig = plt.figure()
+    # ax = fig.add_subplot(projection='3d')
+    # ax.scatter(x, y, z, c=c, cmap=cm.coolwarm, marker='o')
+    #
+    # plt.savefig("GA_F6.png")
+    #
+    # # plt.colorbar(label="Generation", orientation="horizontal", c=c, cmap=cm.coolwarm)
+    # plt.show()
 
     # (100 - 40) BEST CROMO FITNESS 0.9999993979950594
     # (10 - 400) BEST CROMO FITNESS 0.9999999988619942
