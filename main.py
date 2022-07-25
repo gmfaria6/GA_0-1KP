@@ -1,9 +1,6 @@
 import json
 import random
-import numpy as np
-import math
-import matplotlib.pyplot as plt
-from matplotlib import cm
+from datetime import datetime
 
 
 def calculate_fitness(croma, items_profit):
@@ -106,7 +103,7 @@ def validate_cromo(croma, weights, capacities):
 
 
 def my_AG(population_size, number_of_generations, crossover_param, mutation_param, file_name):
-    random.seed(55)
+    random.seed(datetime.now().timestamp())
     population = {}
     population[0] = []
     best_fitness = {"history": []}
