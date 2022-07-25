@@ -36,19 +36,19 @@ def roulette_selection(parents_pool, population_size):
     return new_parents
 
 
-def crossover(parent1, parent2):
+def crossover(parent1, parent2, weights, capacities):
     position = random.randrange(0, 100)
 
     new_parent1 = parent1[0:position] + parent2[position:len(parent2)]
     new_parent2 = parent2[0:position] + parent1[position:len(parent1)]
 
-    new_parent1 = validate_cromo(new_parent1)
-    new_parent2 = validate_cromo(new_parent2)
+    new_parent1 = validate_cromo(new_parent1, weights, capacities)
+    new_parent2 = validate_cromo(new_parent2, weights, capacities)
 
     return new_parent1, new_parent2
 
 
-def mutation(parent1, parent2, mutation_param):
+def mutation(parent1, parent2, mutation_param, weights, capacities):
     for i in range(0, len(parent1)):
         if random.randrange(0, 100) < mutation_param + 1:
             if parent1[i] == '1':
@@ -56,8 +56,8 @@ def mutation(parent1, parent2, mutation_param):
             else:
                 parent1 = parent1[:i] + '1' + parent1[i + 1:]
 
-    parent1 = validate_cromo(parent1)
-    parent2 = validate_cromo(parent2)
+    parent1 = validate_cromo(parent1, weights, capacities)
+    parent2 = validate_cromo(parent2, weights, capacities)
     return parent1, parent2
 
 
@@ -184,9 +184,9 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
             parent2 = selected_parents[it]
 
             if random.randrange(0, 100) < crossover_param + 1:
-                parent1["id"], parent2["id"] = crossover(parent1["id"], parent2["id"])
+                parent1["id"], parent2["id"] = crossover(parent1["id"], parent2["id"], weights, capacities)
 
-            parent1["id"], parent2["id"] = mutation(parent1["id"], parent2["id"], mutation_param)
+            parent1["id"], parent2["id"] = mutation(parent1["id"], parent2["id"], mutation_param, weights, capacities)
 
             population[generation + 1].append({"id": parent1["id"], "fitness": calculate_fitness(parent1["id"],
                                                                                                  items_profit)})
