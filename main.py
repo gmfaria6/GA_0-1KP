@@ -76,12 +76,7 @@ def validate_cromo(croma, weights, capacities):
         current_weight = 0
         item = 0
         for bit in croma:
-            print(item)
-            print(slot)
-            print("bit = {}".format(bit))
             if bit == '1':
-                print(weights)
-                print(weights[slot][item])
                 current_weight += weights[slot][item]
             item += 1
         while current_weight > capacities[slot]:
@@ -97,6 +92,8 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
     population = {}
     population[0] = []
     best_fitness = {"history": []}
+    weights = {0: [], 1: [], 2: [], 3: [], 4: []}
+    capacities = {0: 11927, 1: 13727, 2: 11551, 3: 13056, 4: 13460}
 
     for generation in range(0, number_of_generations):
         print("----------------------------------------------------------------------------------------------")
@@ -111,10 +108,6 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
                         959, 668, 507, 855, 986, 831, 821, 825, 868, 852, 832, 828, 799, 686, 510, 671, 575, 740, 510,
                         675, 996, 636, 826, 1022, 1140, 654, 909, 799, 1162, 653, 814, 625, 599, 476, 767, 954, 906,
                         904, 649, 873, 565, 853, 1008, 632]
-
-        weights = {0: [], 1: [], 2: [], 3: [], 4: []}
-
-        capacities = {0: 11927, 1: 13727, 2: 11551, 3: 13056, 4: 13460}
 
         if not generation:
             # READ INSTANCE (ONLY FIRST INSTANCE)
