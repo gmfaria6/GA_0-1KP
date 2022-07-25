@@ -42,6 +42,9 @@ def crossover(parent1, parent2):
     new_parent1 = parent1[0:position] + parent2[position:len(parent2)]
     new_parent2 = parent2[0:position] + parent1[position:len(parent1)]
 
+    new_parent1 = validate_cromo(new_parent1)
+    new_parent2 = validate_cromo(new_parent2)
+
     return new_parent1, new_parent2
 
 
@@ -53,6 +56,8 @@ def mutation(parent1, parent2, mutation_param):
             else:
                 parent1 = parent1[:i] + '1' + parent1[i + 1:]
 
+    parent1 = validate_cromo(parent1)
+    parent2 = validate_cromo(parent2)
     return parent1, parent2
 
 
