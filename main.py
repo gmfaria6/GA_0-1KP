@@ -89,6 +89,7 @@ def validate_cromo(croma, weights, capacities):
             if bit == '0':
                 if current_weight + weights[slot][item] <= capacities[slot]:
                     croma = croma[0:item] + '1' + croma[item + 1:100]
+                    current_weight += weights[slot][item]
             item += 1
     return croma
 
