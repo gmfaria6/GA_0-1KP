@@ -82,7 +82,7 @@ def validate_cromo(croma, weights, capacities):
     return croma
 
 
-def my_AG(population_size, number_of_generations, crossover_param, mutation_param, considered):
+def my_AG(population_size, number_of_generations, crossover_param, mutation_param, file_name):
     random.seed(55)
     population = {}
     population[0] = []
@@ -194,17 +194,18 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
         print(best_cromo)
         generation += 1
-    fitness_file = open("fistness_history.json", "w")
+    fitness_file = open("fistness_history_{}.json".format(file_name), "w")
     json.dump(best_fitness, fitness_file)
     return population
 
 
 if __name__ == '__main__':
-    all_population = my_AG(population_size=10,
+    file_name = str(input())
+    all_population = my_AG(population_size=25,
                            number_of_generations=10,
                            crossover_param=75,
                            mutation_param=1,
-                           considered=7)
+                           file_name=file_name)
 
     # x = []
     # y = []
