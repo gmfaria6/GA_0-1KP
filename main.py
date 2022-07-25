@@ -80,6 +80,7 @@ def validate_cromo(croma, weights, capacities):
             print(slot)
             print("bit = {}".format(bit))
             if bit == '1':
+                print(weights)
                 print(weights[slot][item])
                 current_weight += weights[slot][item]
             item += 1
