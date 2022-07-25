@@ -39,7 +39,7 @@ def roulette_selection(parents_pool, population_size):
 def crossover(parent1, parent2):
     position = random.randrange(0, 100)
 
-    new_parent1 = parent1[0:position] + parent2[position:len(parent1)]
+    new_parent1 = parent1[0:position] + parent2[position:len(parent2)]
     new_parent2 = parent2[0:position] + parent1[position:len(parent1)]
 
     return new_parent1, new_parent2
@@ -201,8 +201,8 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
 if __name__ == '__main__':
     file_name = str(input())
-    all_population = my_AG(population_size=25,
-                           number_of_generations=10,
+    all_population = my_AG(population_size=20,
+                           number_of_generations=20,
                            crossover_param=75,
                            mutation_param=1,
                            file_name=file_name)
