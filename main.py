@@ -1,3 +1,4 @@
+import json
 import random
 import numpy as np
 import math
@@ -85,6 +86,7 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
     random.seed(55)
     population = {}
     population[0] = []
+    best_fitness = {"history": []}
 
     for generation in range(0, number_of_generations):
         print("----------------------------------------------------------------------------------------------")
@@ -163,6 +165,7 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
                 value = cromo["fitness"]
                 best_cromo = cromo
         print("BEST CROMO FITNESS", best_cromo["fitness"])
+        best_fitness["history"].append(best_cromo["fitness"])
 
         parents_pool = population[generation]
 
@@ -191,6 +194,8 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
         print(best_cromo)
         generation += 1
+    fitness_file = open("fistness_history.json", "w")
+    json.dump(best_fitness, fitness_file)
     return population
 
 
