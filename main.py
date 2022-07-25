@@ -76,8 +76,7 @@ def validate_cromo(croma, weights, capacities):
         current_weight = 0
         item = 0
         for bit in croma:
-            if item >= 100:
-                print("EPA")
+            print(item)
             if bit == '1':
                 current_weight += weights[slot][item]
             item += 1
