@@ -195,8 +195,8 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
 
 if __name__ == '__main__':
-    all_population = my_AG(population_size=100,
-                           number_of_generations=100,
+    all_population = my_AG(population_size=10,
+                           number_of_generations=10,
                            crossover_param=75,
                            mutation_param=1,
                            considered=7)
