@@ -72,6 +72,7 @@ def read_file(path):
 
 
 def validate_cromo(croma, weights, capacities):
+    current_weight_slots = []
     for slot in range(0, 5):
         current_weight = 0
         item = 0
@@ -84,13 +85,23 @@ def validate_cromo(croma, weights, capacities):
             if croma[random_item] == '1':
                 croma = croma[0:random_item] + '0' + croma[random_item + 1:100]
                 current_weight -= weights[slot][random_item]
-        item = 0
-        for bit in croma:
-            if bit == '0':
-                if current_weight + weights[slot][item] <= capacities[slot]:
-                    croma = croma[0:item] + '1' + croma[item + 1:100]
-                    current_weight += weights[slot][item]
-            item += 1
+        current_weight_slots.append(current_weight)
+
+    item = 0
+    for bit in croma:
+        if bit == '0':
+            flag = False
+            for slot in range(0, 5):
+                if current_weight_slots[slot] + weights[slot][item] <= capacities[slot]:
+                    flag = True
+                else:
+                    flag = False
+                    break
+            if flag:
+                croma = croma[0:item] + '1' + croma[item + 1:100]
+                for slot in range(0, 5):
+                    current_weight_slots[slot] += weights[slot][item]
+        item += 1
     return croma
 
 
