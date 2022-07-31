@@ -14,21 +14,20 @@ def calculate_fitness(croma, items_profit):
     return profit
 
 
-def roulette_selection(parents_pool, population_size):
-    roulette = []
-
+def tournament_selection(parents_pool, population_size):
     new_parents = []
-
     while len(new_parents) < population_size:
-        for parent in parents_pool:
-            slot_size = int(parent["fitness"] * 10)
+        new_tournament = []
+        for i in range(0, 10):
+            new_tournament.append(parents_pool[random.randrange(0, population_size)])
 
-            for i in range(0, slot_size):
-                roulette.append({"id": parent["id"], "fitness": parent["fitness"]})
+        best_candidate = {"id": 0, "fitness": 0}
 
-        selected = random.randrange(0, len(roulette))
+        for candidate in new_tournament:
+            if candidate["fitness"] > best_candidate["fitness"]:
+                best_candidate = candidate
 
-        new_parents.append(roulette[selected])
+        new_parents.append(best_candidate)
 
     return new_parents
 
@@ -187,7 +186,7 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
         parents_pool = population[generation]
 
-        selected_parents = roulette_selection(parents_pool, population_size)
+        selected_parents = tournament_selection(parents_pool, population_size)
 
         it = 0
 
@@ -220,10 +219,10 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 if __name__ == '__main__':
     for i in range(0, 30):
         file_name = "test_{}".format(i)
-        all_population = my_AG(population_size=20,
-                               number_of_generations=20,
+        all_population = my_AG(population_size=200,
+                               number_of_generations=200,
                                crossover_param=75,
-                               mutation_param=1,
+                               mutation_param=2,
                                file_name=file_name)
 
     # x = []
