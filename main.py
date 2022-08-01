@@ -1023,7 +1023,7 @@ if __name__ == '__main__':
         for i in range(0, 30):
             file_name = "test_{}".format(i)
             all_population = my_AG(population_size=100,
-                                   number_of_generations=1000,
+                                   number_of_generations=10000,
                                    crossover_param=75,
                                    mutation_param=2,
                                    file_name=file_name,
