@@ -1022,7 +1022,7 @@ if __name__ == '__main__':
         print("RUNNING FILE {}".format(j))
         for i in range(0, 30):
             file_name = "test_{}".format(i)
-            all_population = my_AG(population_size=100,
+            all_population = my_AG(population_size=200,
                                    number_of_generations=200,
                                    crossover_param=75,
                                    mutation_param=2,
