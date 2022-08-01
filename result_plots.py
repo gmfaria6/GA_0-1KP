@@ -12,12 +12,13 @@ for i in range(6, 7):
 
         plt.plot(history)
 
+# optimal = [24381, 59312, 120130, 23064, 59187, 117726]
 optimal = [117726 for i in range(0, 200)]
 
 plt.plot(optimal, color='r', linestyle='--')
-plt.ylabel('Fitness value', fontsize=13)
+plt.ylabel('Fitness (#)', fontsize=13)
 plt.xlabel('Generation', fontsize=13)
 plt.grid(linestyle="--")
-plt.title("Best chromosome fitness - Instance 1")
+plt.title("Best chromosome fitness - Instance 1", fontsize=13)
 plt.savefig("fitness_x_generation_file_6.png", bbox_inches="tight")
 plt.show()
