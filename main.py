@@ -17372,9 +17372,8 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
         index_out = random.randrange(0, len(population[generation + 1]))
         population[generation + 1][index_out] = best_cromo
 
-        print(best_cromo)
         generation += 1
-    print("BEST CROMO FITNESS", best_cromo["fitness"])
+    print(best_cromo)
     fitness_file = open("file_{}/fistness_history_{}.json".format(file_number, file_name), "w")
     json.dump(best_fitness, fitness_file)
     return population
