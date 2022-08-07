@@ -17323,6 +17323,8 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
                 items_profit, capacities, weights = file_7()
             if file_number == 8:
                 items_profit, capacities, weights = file_8()
+            if file_number == 9:
+                items_profit, capacities, weights = file_9()
 
             for i in range(0, population_size):
                 new_cromo = ""
