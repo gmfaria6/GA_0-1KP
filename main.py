@@ -17345,7 +17345,6 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
             if cromo["fitness"] > value:
                 value = cromo["fitness"]
                 best_cromo = cromo
-        print("BEST CROMO FITNESS", best_cromo["fitness"])
         best_fitness["history"].append(best_cromo["fitness"])
 
         parents_pool = population[generation]
@@ -17375,6 +17374,7 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
         print(best_cromo)
         generation += 1
+    print("BEST CROMO FITNESS", best_cromo["fitness"])
     fitness_file = open("file_{}/fistness_history_{}.json".format(file_number, file_name), "w")
     json.dump(best_fitness, fitness_file)
     return population
