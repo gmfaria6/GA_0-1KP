@@ -17381,19 +17381,13 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
 
 if __name__ == '__main__':
-    all_population = my_AG(population_size=200,
-                           number_of_generations=1000,
-                           crossover_param=75,
-                           mutation_param=2,
-                           file_name="file_name",
-                           file_number=9)
-    # for j in range(1, 7):
-    #     print("RUNNING FILE {}".format(j))
-    #     for i in range(0, 30):
-    #         file_name = "test_{}".format(i)
-    #         all_population = my_AG(population_size=200,
-    #                                number_of_generations=1000,
-    #                                crossover_param=75,
-    #                                mutation_param=2,
-    #                                file_name=file_name,
-    #                                file_number=j)
+    for j in range(1, 7):
+        print("RUNNING FILE {}".format(j))
+        for i in range(0, 30):
+            file_name = "test_{}".format(i)
+            all_population = my_AG(population_size=200,
+                                   number_of_generations=2000,
+                                   crossover_param=75,
+                                   mutation_param=2,
+                                   file_name=file_name,
+                                   file_number=j)
