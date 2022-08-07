@@ -17297,9 +17297,9 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
     best_fitness = {"history": []}
 
     for generation in range(0, number_of_generations):
-        print("----------------------------------------------------------------------------------------------")
-        print("Generation", generation)
-        print("----------------------------------------------------------------------------------------------")
+        # print("----------------------------------------------------------------------------------------------")
+        # print("Generation", generation)
+        # print("----------------------------------------------------------------------------------------------")
 
         population[generation + 1] = []
 
