@@ -24,8 +24,8 @@ print(average_instance)
 
 # optimal = [24381, 59312, 120130, 23064, 59187, 117726]
 
-X = ['File 1', 'File 2', 'File 3', 'File 4', 'File 5', "File 6"]
-Y_optimal = [24381, 59312, 120130, 23064, 59187, 117726]
+X = ['File 1', 'File 2', 'File 3', 'File 4', 'File 5', "File 6", "File 7"]
+Y_optimal = [24381, 59312, 120130, 23064, 59187, 117726, 21946]
 Y_GA = average_instance
 
 X_axis = np.arange(len(X))

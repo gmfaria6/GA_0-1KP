@@ -12,7 +12,7 @@ for i in range(6, 7):
 
         plt.plot(history)
 
-# optimal = [24381, 59312, 120130, 23064, 59187, 117726]
+# optimal = [24381, 59312, 120130, 23064, 59187, 117726, 21946]
 optimal = [117726 for i in range(0, 1000)]
 
 plt.plot(optimal, color='r', linestyle='--')
