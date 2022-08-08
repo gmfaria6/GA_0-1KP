@@ -17380,7 +17380,7 @@ def my_AG(population_size, number_of_generations, crossover_param, mutation_para
 
 
 if __name__ == '__main__':
-    for j in range(1, 7):
+    for j in range(7, 10):
         print("FILE {}".format(j))
         print("RUNNING FILE {}".format(j))
         for i in range(0, 30):
